@@ -1,0 +1,13 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module"
+  "scripts": {
+    "start": "nodemom sever.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
