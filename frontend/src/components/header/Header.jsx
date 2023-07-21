@@ -10,7 +10,7 @@ function Header() {
             Living! Discover a seamless and stress-free way to find your dream
             home.
           </h2>
-          <span>Book Now</span>
+          <span>Get Started Now! Book and Reserve Your House or Room</span>
         </div>
         <div className="right">
           <img
