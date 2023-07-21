@@ -1,5 +1,9 @@
 .navBar {
   height: 100%;
+  top: 0;
+  position: sticky;
+  z-index: 999;
+  background-color: white;
 
   .navBarComponent {
     width: 100%;
@@ -34,6 +38,7 @@
         background-color: white;
         padding: 10px 20px;
         border: 1px solid lightskyblue;
+        border-radius: 10px;
         cursor: pointer;
 
         &:last-child {
