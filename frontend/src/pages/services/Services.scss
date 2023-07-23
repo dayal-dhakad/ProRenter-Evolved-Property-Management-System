@@ -1,0 +1,58 @@
+.services {
+  height: 100%;
+
+  .servicesContainer {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    padding: 50px 20px;
+    margin: auto;
+    gap: 20px;
+
+    .left {
+      flex: 3;
+    }
+    .middle {
+      flex: 6;
+      background-color: azure;
+      padding: 20px;
+
+      .middleContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .imageContainer {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+          gap: 5px;
+
+          img {
+            width: 267px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+          }
+        }
+        .location {
+          display: flex;
+          gap: 10px;
+        }
+        button {
+          border: none;
+          font-size: 18px;
+          padding: 10px 20px;
+          width: max-content;
+          border-radius: 10px;
+          background-color: lightskyblue;
+          cursor: pointer;
+        }
+      }
+    }
+    .right {
+      flex: 3;
+    }
+  }
+}
