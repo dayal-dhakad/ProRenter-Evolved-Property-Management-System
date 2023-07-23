@@ -1,5 +1,6 @@
 .about {
   height: 100%;
+  background-color: lightskyblue;
 
   .aboutContainer {
     width: 100%;
@@ -39,7 +40,7 @@
         padding: 10px 20px;
         width: max-content;
         border-radius: 10px;
-        background-color: lightskyblue;
+        background-color: white;
         cursor: pointer;
       }
     }
