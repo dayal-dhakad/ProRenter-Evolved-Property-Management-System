@@ -13,9 +13,12 @@
       flex: 3;
     }
     .middle {
+      display: flex;
+      flex-direction: column;
       flex: 6;
       background-color: azure;
       padding: 20px;
+      gap: 40px;
 
       .middleContainer {
         display: flex;
@@ -34,6 +37,7 @@
             height: 250px;
             object-fit: cover;
             border-radius: 10px;
+            cursor: pointer;
           }
         }
         .location {
