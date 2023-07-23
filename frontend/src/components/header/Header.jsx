@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Header.scss";
 
 function Header() {
@@ -10,7 +11,9 @@ function Header() {
             Living! Discover a seamless and stress-free way to find your dream
             home.
           </h2>
-          <span>Get Started Now! Book and Reserve Your House or Room</span>
+          <Link to="/services" className="link">
+            <span>Get Started Now! Book and Reserve Your House or Room</span>
+          </Link>
         </div>
         <div className="right">
           <img
