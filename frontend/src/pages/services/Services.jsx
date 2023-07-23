@@ -33,6 +33,7 @@ function Services() {
               <p>Category: Self Contained</p>
               <span>Price: 80,000 TZS per month</span>
               <span>Reach me here: 0768 086 183</span>
+              <span>Status: Available</span>
               <div className="location">
                 <span>City: Dar Es Salaam</span>
                 <span>District: kigamboni</span>
