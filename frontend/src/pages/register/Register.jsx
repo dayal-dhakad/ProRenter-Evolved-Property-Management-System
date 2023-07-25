@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import NavBar from "../../components/navBar/NavBar";
 import "./Register.scss";
 
@@ -33,6 +34,9 @@ function Register() {
                 <input type="number" placeholder="phone number" />
               </div>
               <button>JOIN</button>
+              <p>
+                already have an account? <Link to="/signIn">sing in here</Link>
+              </p>
             </form>
           </div>
         </div>
