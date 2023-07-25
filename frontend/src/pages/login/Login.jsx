@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from "../../components/navBar/NavBar";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -20,13 +21,15 @@ function Login() {
                 <label htmlFor="">Username</label>
                 <input type="text" placeholder="name" />
               </div>
-
               <div className="formLabel">
                 <label htmlFor="">Password</label>
                 <input type="password" placeholder="password" />
               </div>
-
               <button>SING IN</button>
+              <p>
+                You don't have an account?{" "}
+                <Link to="/signUp">sing up here</Link>
+              </p>
             </form>
           </div>
         </div>
