@@ -69,16 +69,35 @@ function Services() {
                   alt=""
                 />
               </div>
-              <p>Category: Self Contained</p>
-              <span>Number of Rooms: 4</span>
-              <span>Price: 80,000 TZS per month</span>
-              <span>Reach me here: 0768 086 183</span>
-              <span>Status: Available</span>
+              <p>
+                Category: <strong>Self Contained</strong>
+              </p>
+              <span>
+                Number of Rooms: <strong>4</strong>
+              </span>
+              <span>
+                Price: <strong>80,000 TZS per month</strong>
+              </span>
+              <span>
+                Reach me here: <strong>0768 086 183</strong>
+              </span>
+              <span>
+                Status: <strong>Available</strong>
+              </span>
               <div className="location">
-                <span>City: Dar Es Salaam</span>
-                <span>District: kigamboni</span>
-                <span>Street: Ferry</span>
+                <span>
+                  City: <strong>Dar Es Salaam</strong>
+                </span>
+                <span>
+                  District: <strong>kigamboni</strong>
+                </span>
+                <span>
+                  Street: <strong>Ferry</strong>
+                </span>
               </div>
+              <span>
+                Uploaded By: <strong>James</strong>
+              </span>
               <button>Book Now</button>
             </div>
             <div className="middleContainer">
