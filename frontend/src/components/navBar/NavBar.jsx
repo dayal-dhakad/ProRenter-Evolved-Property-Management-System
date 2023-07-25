@@ -14,10 +14,10 @@ function NavBar() {
           <Link to="/" className="link">
             <span>Home</span>
           </Link>
-          <Link to="/" className="link">
+          <Link to="/aboutUs" className="link">
             <span>About Us</span>
           </Link>
-          <Link to="/" className="link">
+          <Link to="/contactUs" className="link">
             <span>Contact Us</span>
           </Link>
           <Link to="/services" className="link">
