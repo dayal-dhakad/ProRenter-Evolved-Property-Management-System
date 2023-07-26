@@ -2,7 +2,12 @@ import mongoose from "mongoose";
 
 const locationSchema = new mongoose.Schema(
   {
-    name: String,
+    cityName: {
+      type: String,
+    },
+    districtName: {
+      type: [String],
+    },
   },
   {
     timestamps: true,
