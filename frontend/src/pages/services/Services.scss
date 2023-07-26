@@ -31,15 +31,16 @@
         border: 1px solid lightgray;
       }
 
+      h2 {
+        font-size: 20px;
+        font-weight: 500;
+      }
+
       .leftContainer {
         display: flex;
         flex-direction: column;
         gap: 10px;
 
-        h2 {
-          font-size: 20px;
-          font-weight: 500;
-        }
         .lContainer {
           display: flex;
           align-items: center;
