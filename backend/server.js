@@ -6,6 +6,11 @@ import multer from "multer";
 import path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
+import authRoute from "./routes/auth.js";
+import userRoute from "./routes/users.js";
+import categoryRoute from "./routes/categories.js";
+import locationRoute from "./routes/locations.js";
+import serviceRoute from "./routes/services.js";
 
 const app = express();
 dotenv.config();
@@ -47,6 +52,11 @@ app.post("/api/upload", upload.array("file"), (req, res) => {
 app.use(upload.array("photo"));
 
 //Other middleware
+app.use("/api/auth", authRoute);
+app.use("/api/users", userRoute);
+app.use("/api/categories", categoryRoute);
+app.use("/api/location", locationRoute);
+app.use("/api/services", serviceRoute);
 
 //error handling middleware
 app.use((error, req, res, next) => {
