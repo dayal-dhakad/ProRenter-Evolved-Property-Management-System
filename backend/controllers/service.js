@@ -67,8 +67,27 @@ export const getPost = async (req, res, next) => {
 
 //get all post
 export const getPosts = async (req, res, next) => {
+  const username = req.query.user;
+  const catName = req.query.cat;
+  const cityName = req.query.city;
+  const districtName = req.query.district;
+  const streetName = req.query.street;
+
   try {
-    const getPosts = await Service.find();
+    let getPosts;
+    if (username) {
+      getPosts = await Service.find({ username });
+    } else if (catName) {
+      getPosts = await Service.find({ category: catName });
+    } else if (cityName) {
+      getPosts = await Service.find({ city: cityName });
+    } else if (districtName) {
+      getPosts = await Service.find({ district: districtName });
+    } else if (streetName) {
+      getPosts = await Service.find({ street: streetName });
+    } else {
+      getPosts = await Service.find();
+    }
     res.status(200).json(getPosts);
   } catch (error) {
     next(error);
