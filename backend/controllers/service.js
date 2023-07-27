@@ -72,6 +72,7 @@ export const getPosts = async (req, res, next) => {
   const cityName = req.query.city;
   const districtName = req.query.district;
   const streetName = req.query.street;
+  const searchQuery = req.query.search;
 
   try {
     let getPosts;
@@ -80,11 +81,25 @@ export const getPosts = async (req, res, next) => {
     } else if (catName) {
       getPosts = await Service.find({ category: catName });
     } else if (cityName) {
-      getPosts = await Service.find({ city: cityName });
+      getPosts = await Service.find({
+        city: { $regex: cityName, $options: "i" },
+      });
     } else if (districtName) {
       getPosts = await Service.find({ district: districtName });
     } else if (streetName) {
       getPosts = await Service.find({ street: streetName });
+    } else if (searchQuery) {
+      // Check if there's a search query
+      // Use regex to perform a case-insensitive search on the "title" field
+      getPosts = await Service.find({
+        $or: [
+          { username: { $regex: searchQuery, $options: "i" } },
+          { category: { $regex: searchQuery, $options: "i" } },
+          { city: { $regex: searchQuery, $options: "i" } },
+          { district: { $regex: searchQuery, $options: "i" } },
+          { street: { $regex: searchQuery, $options: "i" } },
+        ],
+      });
     } else {
       getPosts = await Service.find();
     }
