@@ -6,6 +6,7 @@ import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
 import Contact from "./pages/contact/Contact";
 import AboutUs from "./pages/aboutUs/AboutUs";
+import Single from "./pages/single/Single";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/signIn" element={<Login />} />
           <Route path="/contactUs" element={<Contact />} />
           <Route path="/aboutUs" element={<AboutUs />} />
+          <Route path="/services/:id" element={<Single />} />
         </Routes>
       </BrowserRouter>
     </div>
