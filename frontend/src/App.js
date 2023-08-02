@@ -7,6 +7,7 @@ import Login from "./pages/login/Login";
 import Contact from "./pages/contact/Contact";
 import AboutUs from "./pages/aboutUs/AboutUs";
 import Single from "./pages/single/Single";
+import Upload from "./pages/upload/Upload";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/contactUs" element={<Contact />} />
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/services/:id" element={<Single />} />
+          <Route path="/upload" element={<Upload />} />
         </Routes>
       </BrowserRouter>
     </div>
