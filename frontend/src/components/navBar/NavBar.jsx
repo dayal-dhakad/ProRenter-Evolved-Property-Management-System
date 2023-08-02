@@ -23,6 +23,9 @@ function NavBar() {
           <Link to="/services" className="link">
             <span>Services</span>
           </Link>
+          <Link to="/upload" className="link">
+            <span>Upload</span>
+          </Link>
         </div>
         <div className="right">
           <Link to="/signIn" className="link">
