@@ -112,76 +112,74 @@ function Services() {
           <div className="mid">
             {data.map((item) => (
               <div className="middle">
-                <Link
-                  to={`/services/${item._id}`}
-                  key={item._id}
-                  className="link"
-                >
-                  <div className="middleContainer" key={item._id}>
-                    {item.photo && (
-                      <div className="imageContainer">
-                        {item.photo.map((i) => (
-                          <img src={i} alt="" key={i} />
-                        ))}
-                      </div>
-                    )}
-
-                    <p>
-                      Category:{" "}
-                      <strong style={{ color: "darkBlue" }}>
-                        {item.category}
-                      </strong>
-                    </p>
-                    <span>
-                      Number of Rooms:{" "}
-                      <strong style={{ color: "purple" }}>
-                        {item.roomNumber}
-                      </strong>
-                    </span>
-                    <span>
-                      Price:{" "}
-                      <strong style={{ color: "darkGreen" }}>
-                        {item.price} TZS per month
-                      </strong>
-                    </span>
-                    <span>
-                      Reach me here: <strong>{item.phoneNumber}</strong>
-                    </span>
-                    <span>
-                      Status:{" "}
-                      <strong style={{ color: "green" }}>{item.status}</strong>
-                    </span>
-                    <div className="location">
-                      <span>
-                        City:{" "}
-                        <strong style={{ color: "brown" }}>{item.city}</strong>
-                      </span>
-                      <span>
-                        District:{" "}
-                        <strong style={{ color: "brown" }}>
-                          {item.district}
-                        </strong>
-                      </span>
-                      <span>
-                        Street:{" "}
-                        <strong style={{ color: "brown" }}>
-                          {item.street}
-                        </strong>
-                      </span>
+                <div className="middleContainer" key={item._id}>
+                  {item.photo && (
+                    <div className="imageContainer">
+                      {item.photo.map((i) => (
+                        <img src={i} alt="" key={i} />
+                      ))}
                     </div>
+                  )}
+
+                  <p>
+                    Category:{" "}
+                    <strong style={{ color: "darkBlue" }}>
+                      {item.category}
+                    </strong>
+                  </p>
+                  <span>
+                    Number of Rooms:{" "}
+                    <strong style={{ color: "purple" }}>
+                      {item.roomNumber}
+                    </strong>
+                  </span>
+                  <span>
+                    Price:{" "}
+                    <strong style={{ color: "darkGreen" }}>
+                      {item.price} TZS per month
+                    </strong>
+                  </span>
+                  <span>
+                    Reach me here: <strong>{item.phoneNumber}</strong>
+                  </span>
+                  <span>
+                    Status:{" "}
+                    <strong style={{ color: "green" }}>{item.status}</strong>
+                  </span>
+                  <div className="location">
                     <span>
-                      Uploaded By:{" "}
-                      <strong style={{ color: "Teal" }}>James</strong>
+                      City:{" "}
+                      <strong style={{ color: "brown" }}>{item.city}</strong>
                     </span>
                     <span>
-                      Time uploaded:{" "}
-                      <strong style={{ color: "gray" }}>
-                        {new Date(item.createdAt).toDateString()}
+                      District:{" "}
+                      <strong style={{ color: "brown" }}>
+                        {item.district}
                       </strong>
                     </span>
-                    <button>View Description</button>
+                    <span>
+                      Street:{" "}
+                      <strong style={{ color: "brown" }}>{item.street}</strong>
+                    </span>
                   </div>
-                </Link>
+                  <span>
+                    Uploaded By:{" "}
+                    <strong style={{ color: "Teal" }}>James</strong>
+                  </span>
+                  <span>
+                    Time uploaded:{" "}
+                    <strong style={{ color: "gray" }}>
+                      {new Date(item.createdAt).toDateString()}
+                    </strong>
+                  </span>
+                  <Link
+                    to={`/services/${item._id}`}
+                    key={item._id}
+                    className="link"
+                  >
+                    <button>View Description</button>
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
