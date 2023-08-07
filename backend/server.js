@@ -71,9 +71,7 @@ app.use((error, req, res, next) => {
 });
 
 //starting server
-const PORT = 5000;
-
-app.listen(PORT, () => {
+app.listen(5000, () => {
   connect();
   console.log("Backend is running");
 });
