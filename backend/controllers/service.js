@@ -101,7 +101,7 @@ export const getPosts = async (req, res, next) => {
         ],
       });
     } else {
-      getPosts = await Service.find();
+      getPosts = await Service.find().sort({ timestamp: -1 });
     }
     res.status(200).json(getPosts);
   } catch (error) {
