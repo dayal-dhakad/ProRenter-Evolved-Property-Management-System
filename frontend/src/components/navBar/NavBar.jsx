@@ -97,7 +97,7 @@ function NavBar() {
                 <span>SIGN IN</span>
               </Link>
               <Link to="/signUp" className="link">
-                <span>JOIN</span>
+                <span>REGISTER</span>
               </Link>
             </>
           )}
