@@ -38,18 +38,23 @@ const storage = multer.diskStorage({
     cb(null, "images");
   },
   filename: (req, file, cb) => {
-    cb(null, req.body.name);
+    cb(null, file.originalname + Date.now());
   },
 });
 
-//create upload middleware
-const upload = multer({ storage: storage });
-app.post("/api/upload", upload.array("file"), (req, res) => {
-  res.status(200).json("file has been uploaded");
+const upload = multer({ storage: storage, multiple: true });
+
+app.post("/api/upload", upload.array("photos"), (req, res) => {
+  const photos = req.files;
+
+  res.status(200).json({
+    message: "Files have been uploaded successfully",
+    photos: photos,
+  });
 });
 
 //API endpoint for file/image upload
-app.use(upload.array("photo"));
+app.use(upload.array("photos"));
 
 //Other middleware
 app.use("/api/auth", authRoute);
