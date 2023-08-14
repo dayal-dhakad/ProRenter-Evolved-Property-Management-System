@@ -1,8 +1,9 @@
 import NavBar from "../../components/navBar/NavBar";
 import axios from "axios";
 import "./Services.scss";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 function Services() {
   const [show, setShow] = useState(false);
@@ -11,7 +12,11 @@ function Services() {
   const [location, setLocation] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
+  const pf = "http://localhost:5000/images/";
+
   const { search } = useLocation();
+
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const getPosts = async () => {
@@ -115,8 +120,8 @@ function Services() {
                 <div className="middleContainer" key={item._id}>
                   {item.photo && (
                     <div className="imageContainer">
-                      {item.photo.map((i) => (
-                        <img src={i} alt="" key={i} />
+                      {item.photo.map((i, image) => (
+                        <img src={pf + i} alt="" key={image} />
                       ))}
                     </div>
                   )}
@@ -164,13 +169,11 @@ function Services() {
                   </div>
                   <span>
                     Uploaded By:{" "}
-                    <strong style={{ color: "Teal" }}>James</strong>
+                    <strong style={{ color: "Teal" }}>james</strong>
                   </span>
                   <span>
                     Time uploaded:{" "}
-                    <strong style={{ color: "gray" }}>
-                      {new Date(item.createdAt).toDateString()}
-                    </strong>
+                    <strong style={{ color: "gray" }}>{item.timestamp}</strong>
                   </span>
                   <Link
                     to={`/services/${item._id}`}
