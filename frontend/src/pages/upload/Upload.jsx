@@ -21,9 +21,7 @@ function Upload() {
   const navigate = useNavigate();
 
   const handleFileChange = (e) => {
-    const fileList = e.target.files[0];
-    const fileArray = Array.from(fileList); // Convert FileList to array
-    setSelectedFiles(fileArray);
+    setSelectedFiles([...e.target.files]);
   };
 
   const handleUpload = async (e) => {
@@ -41,36 +39,22 @@ function Upload() {
       street,
     };
 
-    try {
-      const formDataArray = [];
-
-      // Create an array of FormData objects for each file
-      for (const file of selectedFiles) {
-        const formData = new FormData();
-        const filename = Date.now() + file.name;
-        formData.append("name", filename);
-        formData.append("file", file);
-        formDataArray.push(formData);
-      }
-
-      // Send requests for each FormData object
-      const uploadPromises = formDataArray.map((formData) =>
-        axios.post("http://localhost:5000/api/upload", formData)
-      );
-
-      // Wait for all requests to complete
-      await Promise.all(uploadPromises);
-
-      console.log("All files have been uploaded");
-    } catch (error) {
-      console.log(error);
+    const formData = new FormData();
+    for (let i = 0; i < selectedFiles.length; i++) {
+      formData.append("files", selectedFiles[i]);
     }
 
     try {
-      await axios.post("http://localhost:5000/api/services", newPost);
-      navigate("/services");
+      await axios.post("http://localhost:5000/api/upload", formData);
+
+      try {
+        await axios.post("http://localhost:5000/api/services", newPost);
+        navigate("/services");
+      } catch (error) {
+        console.log(error);
+      }
     } catch (error) {
-      console.log(error);
+      console.log("Error uploading images:", error);
     }
   };
 
