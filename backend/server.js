@@ -11,6 +11,7 @@ import userRoute from "./routes/users.js";
 import categoryRoute from "./routes/categories.js";
 import locationRoute from "./routes/locations.js";
 import serviceRoute from "./routes/services.js";
+import Service from "./models/Service.js";
 
 const app = express();
 dotenv.config();
@@ -38,23 +39,33 @@ const storage = multer.diskStorage({
     cb(null, "images");
   },
   filename: (req, file, cb) => {
-    cb(null, file.originalname + Date.now());
+    console.log("Received file:", file.originalname);
+    cb(null, Date.now() + "-" + file.originalname);
   },
 });
 
-const upload = multer({ storage: storage, multiple: true });
+//API endpoint for file/image upload
+const upload = multer({ storage: storage });
 
-app.post("/api/upload", upload.array("photos"), (req, res) => {
-  const photos = req.files;
+app.post("/api/upload", upload.array("files"), async (req, res) => {
+  try {
+    const imageUrls = req.files.map((file) => file.path);
 
-  res.status(200).json({
-    message: "Files have been uploaded successfully",
-    photos: photos,
-  });
+    const serviceData = {
+      photo: imageUrls,
+    };
+
+    const createdService = await Service.create(serviceData);
+
+    res.status(200).json(createdService);
+  } catch (error) {
+    console.error("Error uploading images:", error);
+    res.status(500).json({ error: "Error uploading images" });
+  }
 });
 
-//API endpoint for file/image upload
-app.use(upload.array("photos"));
+//create uploads middleware
+app.use(upload.array("photo"));
 
 //Other middleware
 app.use("/api/auth", authRoute);
