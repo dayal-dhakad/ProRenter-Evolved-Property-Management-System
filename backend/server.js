@@ -12,6 +12,7 @@ import categoryRoute from "./routes/categories.js";
 import locationRoute from "./routes/locations.js";
 import serviceRoute from "./routes/services.js";
 import Service from "./models/Service.js";
+import { connect } from "http2";
 
 const app = express();
 dotenv.config();
@@ -24,14 +25,23 @@ app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
 //mongodb setup
-const connect = async () => {
+
+const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URL);
-    console.log("MongoDB connected");
+    await mongoose.connect(process.env.MONGODB_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log('Db connected Successfully');
   } catch (error) {
-    throw error;
+    console.log('Db connection failed');
+    console.error(error);
+    process.exit(1);
   }
 };
+
+
+
 
 //setup storage for file upload
 const storage = multer.diskStorage({
@@ -88,6 +98,6 @@ app.use((error, req, res, next) => {
 
 //starting server
 app.listen(5000, () => {
-  connect();
+  connectDB();
   console.log("Backend is running");
 });
